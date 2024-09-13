@@ -3,16 +3,16 @@ import tkinter.ttk as ttk
 import requests
 
 
-# https://v6.exchangerate-api.com/v6/944e842f0c28a92abb70f1cc/pair/USD/NGN
+# https://v6.exchangerate-api.com/v6/api_keys/pair/USD/NGN
 base_url = "https://v6.exchangerate-api.com/"
 
 def convert_pressed():
     amount= input_text.get()
     from_curr= source_value.get()
     to_curr= target_value.get()
-    main_url= base_url + "v6/944e842f0c28a92abb70f1cc/pair/" + from_curr + "/" + to_curr
+    main_url= base_url + "v6/keys/pair/" + from_curr + "/" + to_curr
 
-#     main_url1= base_url + "v6/944e842f0c28a92abb70f1cc/pair/" + from_curr + "/" + to_curr
+#     main_url1= base_url + "v6/keys/pair/" + from_curr + "/" + to_curr
     req= requests.get(main_url)
     result= req.json()
     if result['result'] == 'success':
